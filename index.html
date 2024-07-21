@@ -15,7 +15,7 @@
       <p class="hint">Solo minúsculas y sin acento</p>
       <div class="btn-container">
         <button class="btn" onclick="encriptarTexto()">Encriptar</button>
-        <button id="desencriptar-btn" class="btn" onclick="desencriptarTexto()" disabled>Desencriptar</button>
+        <button id="desencriptar-btn" class="btn" onclick="desencriptarTexto()">Desencriptar</button>
       </div>
     </div>
     <div class="result-container" id="resultado-container">
@@ -30,10 +30,11 @@
   </footer>
   <script>
     document.getElementById('texto').addEventListener('input', function () {
+      var texto = this.value;
       var resultadoTextarea = document.getElementById('resultado');
       var noTexto = document.getElementById('no-texto');
       var desencriptarBtn = document.getElementById('desencriptar-btn');
-      if (this.value === '') {
+      if (texto === '') {
         resultadoTextarea.style.backgroundImage = 'url("Muñeco.png")';
         noTexto.style.display = 'block';
         desencriptarBtn.disabled = true;
@@ -53,13 +54,13 @@
         .replace(/o/g, 'ober')
         .replace(/u/g, 'ufat');
       document.getElementById('resultado').value = resultado;
-      document.getElementById('texto').value = ''; // Limpiar el campo de entrada
+      document.getElementById('texto').value = '';
       mostrarResultado();
       document.getElementById('desencriptar-btn').disabled = true;
     }
 
     function desencriptarTexto() {
-      var texto = document.getElementById('resultado').value;
+      var texto = document.getElementById('texto').value || document.getElementById('resultado').value;
       var resultado = texto
         .replace(/enter/g, 'e')
         .replace(/imes/g, 'i')
@@ -67,7 +68,7 @@
         .replace(/ober/g, 'o')
         .replace(/ufat/g, 'u');
       document.getElementById('resultado').value = resultado;
-      document.getElementById('texto').value = resultado; // Pegar resultado desencriptado en el campo de entrada
+      document.getElementById('texto').value = resultado;
       mostrarResultado();
       document.getElementById('desencriptar-btn').disabled = false;
     }
@@ -90,7 +91,6 @@
       document.getElementById('desencriptar-btn').disabled = false;
     }
 
-    // Mostrar la imagen y el mensaje "No hay texto" al cargar la página
     window.onload = function () {
       var resultadoTextarea = document.getElementById('resultado');
       var noTexto = document.getElementById('no-texto');
