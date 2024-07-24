@@ -1,12 +1,12 @@
 :root {
-  --color-primario: #3FA2F6;
-  --color-secundario: #FAFFAF;
-  --color-terciario: #0F67B1;
+  --color-primario: #478CCF;
+  --color-secundario: #98ABEE;
+  --color-terciario: #E5DDC5;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #96C9F4;
+  background-color: #C5FFF8;
   margin: 0;
   padding: 0;
 }
@@ -26,7 +26,7 @@ body {
   min-width: 300px;
   max-width: 600px;
   margin: 10px;
-  background-color: #FAFFAF;
+  background-color: var(--color-secundario);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px #0F67B1;
@@ -51,7 +51,7 @@ textarea {
 
 .btn {
   background-color: var(--color-primario);
-  color: var(--color-secundario);
+  color: var(--color-terciario);
   border: none;
   padding: 10px 20px;
   margin: 5px;
@@ -98,7 +98,7 @@ footer {
   width: 100%;
   padding: 10px;
   background-color: var(--color-primario);
-  color: var(--color-secundario);
+  color: var(--color-terciario);
   text-align: center;
   position: fixed; /* Cambiar de absolute a fixed */
   bottom: 0;
